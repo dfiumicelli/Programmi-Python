@@ -1,0 +1,5 @@
+string = input("Inserisci ")
+print(string.islower())
+print(string.isupper())
+print(string.isdigit())
+print(string.isalnum())
