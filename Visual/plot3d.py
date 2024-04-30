@@ -4,7 +4,8 @@ matplotlib.use('TkAgg')
 
 import matplotlib.pyplot as plt
 import numpy as np
-
+import seaborn as sns
+sns.set()
 fig=plt.figure()
 ax = plt.axes(projection='3d')
 
