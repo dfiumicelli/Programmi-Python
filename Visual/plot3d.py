@@ -1,10 +1,9 @@
 import matplotlib
-
-matplotlib.use('TkAgg')
-
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+
+matplotlib.use('TkAgg')
 
 sns.set()
 fig = plt.figure()
