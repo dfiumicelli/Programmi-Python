@@ -1,4 +1,4 @@
-with open("test.csv", "w") as f:
+with open("test_mio.csv", "w") as f:
     a = 5
     b = 6
     c = a + b
