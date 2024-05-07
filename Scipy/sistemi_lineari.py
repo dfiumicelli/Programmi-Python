@@ -1,0 +1,20 @@
+from matplotlib import pyplot as plt
+from scipy import signal
+import numpy as np
+A = np.array([[0., 1.], [1., 0.]])
+B = np.array([[0.], [1.]])
+C = np.array([[1., 0.]])
+D = np.array([[0.]])
+sys = signal.StateSpace(A, B, C, D)
+print(sys)
+print("Matrice A ", sys.A)
+print("Poli ", sys.poles)
+print("Zeri ", sys.zeros)
+sys_tf = sys.to_tf()
+sys_zpk = sys.to_zpk()
+print(sys_tf)
+print(sys_zpk)
+fig, ax = plt.subplots(1)
+t, y = signal.step(sys)
+ax.plot(t, y)
+plt.show()
