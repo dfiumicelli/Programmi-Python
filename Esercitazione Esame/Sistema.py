@@ -25,7 +25,7 @@ class Sistema:
         fig, ax = plt.subplots()
         ax.semilogx(w, mag)
         ax.set(title='Bode Diagram', xlabel='w', ylabel='Magnitude')
-        ax.grid(True)
+        ax.grid(True, which='both')
         plt.show()
 
     def generic_response(self, u):
@@ -48,6 +48,9 @@ class Sistema:
                 stable = False
         print(stable)
 
+    def get_A(self):
+        return self.sys.A
+
 
 a = 1.
 sys = Sistema(a)
@@ -58,3 +61,17 @@ sys.generic_response(u)
 sys.bode_diagram()
 sys.is_stable()
 
+
+def custom_func(A, custom_array):
+    if A.shape[1] != custom_array.shape[0]:
+        return "Non è possibile fare il prodotto matriciale"
+    custom_array[custom_array < 2.0] = 0.0
+    C = A @ custom_array
+    means = C.mean(axis=1)
+    return means.sum()
+
+
+custom_array = np.random.normal(size=(3, 4), loc=5.0, scale=2.0)
+custom_array2 = np.random.normal(size=(2, 4), loc=5.0, scale=2.0)
+print(custom_func(sys.get_A(), custom_array=custom_array))
+print(custom_func(sys.get_A(), custom_array=custom_array2))
