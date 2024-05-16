@@ -16,7 +16,7 @@ class Superenalotto:
         for index, rows in num1_6.iterrows():
             numeri_indovinati = np.intersect1d(rows.to_numpy(), vincenti_np)
             if numeri_indovinati.size > 0:
-                if superstar == self.premi_df.iloc[index].superstar:
+                if superstar == self.premi_df.iloc[index].superstar_indovinato:
                     print("Vincente con superstar!")
                     print("Numeri indovinati: ", numeri_indovinati)
                     print("Superstar: ", superstar)
@@ -40,7 +40,7 @@ class Superenalotto:
         for index, rows in num1_6.iterrows():
             numeri_indovinati = np.intersect1d(rows.to_numpy(), vincenti_np)
             if numeri_indovinati.size > 0:
-                if superstar == self.premi_df.iloc[index].superstar:
+                if superstar == self.premi_df.iloc[index].superstar_indovinato:
                     temp_df = self.premi_df[self.premi_df["numero_numeri_indovinati"] == numeri_indovinati.size]
                     temp_df = temp_df[temp_df["superstar_indovinato"] == 1]
                     premio = temp_df["premio"].values[0]
