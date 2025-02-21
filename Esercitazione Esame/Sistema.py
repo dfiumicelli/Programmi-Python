@@ -29,7 +29,7 @@ class Sistema:
         plt.show()
 
     def generic_response(self, u):
-        t = np.linspace(0, 20, 2000)
+        t = np.linspace(0, 4, 2000)
         tout, yout, xout = signal.lsim(self.sys, u, t)
         plt.plot(t, yout)
         plt.grid(True)
@@ -56,7 +56,7 @@ a = 1.
 sys = Sistema(a)
 sys.stamp()
 t = np.linspace(0, 4, 2000)
-u = np.cos(2 * np.pi * t * 4 * t)
+u = 2*np.cos(2 * np.pi * 4 * t)
 sys.generic_response(u)
 sys.bode_diagram()
 sys.is_stable()
